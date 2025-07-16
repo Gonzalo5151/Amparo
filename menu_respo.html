@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Responsivo</title>
+    <style>
+        /* Aquí va el CSS del menú */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-items {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-items li {
+            margin: 0 10px;
+        }
+
+        .menu-items a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+	.menu-items.active {
+	    display: flex;
+	}
+
+        @media (max-width: 768px) {
+            .menu-items {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 50px;
+                right: 20px;
+                width: 200px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
+
+            .menu-items li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu-items.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="menu">
+        <div class="logo">MiLogo</div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <ul class="menu-items">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    <section id="inicio">
+        <h1>Inicio</h1>
+        <p>Bienvenido a nuestro sitio web.</p>
+    </section>
+    <section id="servicios">
+        <h1>Servicios</h1>
+        <p>Descubre nuestros servicios.</p>
+    </section>
+    <script>
+	const menuToggle = document.getElementById('menu-toggle');
+	console.log(menuToggle);
+	const menuItems = document.querySelector('.menu-items');
+
+	menuToggle.addEventListener('click', function() {
+	    menuItems.classList.toggle('active');
+	});    
+     </script>
+</body>
+</html>
